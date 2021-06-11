@@ -1,8 +1,17 @@
 package org.launchcode.spaday.models;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 public class User {
+    @NotBlank
+    @Size(min = 5, max = 15)
     private String username;
+    @Email
     private String email;
+    @NotBlank
+    @Size(min = 6, message="Minimum password is 6 characters")
     private String password;
 
     public User() {
@@ -14,6 +23,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+
     }
 
     public String getUsername() {
@@ -39,4 +49,5 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }
